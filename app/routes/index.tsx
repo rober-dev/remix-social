@@ -4,6 +4,8 @@ import { useLoaderData } from '@remix-run/react';
 
 import { getPosts } from '~/models/posts.server';
 
+import { Post } from '../components/Post';
+
 type LoaderData = {
   posts: Awaited<ReturnType<typeof getPosts>>;
 };
@@ -18,14 +20,11 @@ export default function IndexRoute() {
 
   return (
     <div style={{ fontFamily: 'system-ui, sans-serif', lineHeight: '1.4' }}>
-      <h1 className='text-3xl font-bold underline'>Welcome to Remix</h1>
+      <h1 className=''>Welcome to Remix</h1>
       <ul>
         {posts?.map((post) => (
           <li key={post.title}>
-            <div>
-              <h2>{post.title}</h2>
-              <p>{post.body}</p>
-            </div>
+            <Post header={post.title}>{post.body}</Post>
           </li>
         ))}
       </ul>

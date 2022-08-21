@@ -65,6 +65,7 @@ export default function IndexRoute() {
 
   return (
     <div className='flex flex-col max-w-3xl items-center'>
+      <h1 className='text-5xl mt-4 mb-10'>Remix Social</h1>
       <PostForm
         action='/?index'
         error={formData?.error}
